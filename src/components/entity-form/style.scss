@@ -1,0 +1,53 @@
+* {
+  font-family: "Roboto", sans-serif;
+  outline: none;
+}
+.entityForm {
+  background-color: transparent;
+  padding: 5px;
+  margin: 5px;
+}
+.entity {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #08131b;
+  padding: 10px;
+}
+
+.input-control {
+  display: flex;
+  flex-direction: column;
+}
+
+.e-name {
+  font-size: 12px;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.input-field {
+  width: 150px;
+  height: 30px;
+  padding: 4px;
+  border: none;
+  background-color: #122635;
+  outline: none;
+  color: white;
+}
+
+.input-select {
+  width: 150px;
+  color: white;
+  height: 30px;
+  border: none;
+  background-color: #122635;
+  border-radius: 5px;
+}
+
+.test {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: -120;
+}

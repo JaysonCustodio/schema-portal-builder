@@ -1,0 +1,38 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.entity-field {
+  background-color: rgb(28, 44, 59);
+  padding: 5px;
+  margin-top: 10px;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 5px;
+}
+
+.input-control {
+  display: flex;
+  flex-direction: column;
+}
+
+.radio {
+  display: flex;
+}
+
+.control-btn {
+  display: flex;
+  flex-direction: row;
+}
+
+.input-field {
+  width: 150px;
+  height: 20px;
+  border-radius: 5px;
+}
+
+.label-name {
+  color: rgb(119, 115, 115);
+  margin-bottom: 5px;
+}
