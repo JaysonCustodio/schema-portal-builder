@@ -5,4 +5,31 @@
   flex: 1;
   background: #08131b;
   max-height: 95vh;
+  padding: 3px;
+  overflow-y: scroll;
+}
+
+.container {
+  flex: 1;
+  background: #08131b;
+  max-height: 95vh;
+  max-width: 400px;
+}
+
+select {
+  -moz-appearance: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  option {
+    background-color: #08131b;
+    border: 0px !important;
+    outline: 0px !important;
+  }
+}
+
+.hide-scrollbar {
+  overflow: auto;
+  -ms-overflow-style: none; /* IE 11 */
+  scrollbar-width: none; /* Firefox 64 */
 }

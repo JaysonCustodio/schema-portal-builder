@@ -1,0 +1,42 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+p {
+  color: white;
+}
+
+.field_div > div {
+  display: flex;
+  p {
+    margin-left: 5px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #1acad6;
+    font-size: 12px !important;
+  }
+  label {
+    color: white;
+    font-size: 12px !important;
+    letter-spacing: 1px;
+    padding-left: 20px;
+    margin-left: 10px;
+  }
+}
+.field_div > p {
+  margin-left: 15px;
+}
+.entity_container {
+  padding: 5px;
+  margin-bottom: 2px;
+  background-color: #040a0e;
+  display: flex;
+  label {
+    color: white;
+    font-size: 13px;
+  }
+}
+
+.entity_container > div > p {
+  padding-left: 5px;
+}

@@ -1,67 +1,41 @@
-import React, { useEffect, useState } from 'react'
-import { IEntity } from '../../types/types'
-import EntityField from "../entity-field/EntityField"
+import React, { ChangeEvent } from 'react'
+import { useDispatch } from 'react-redux';
 import AddIcon from '@mui/icons-material/Add';
-import { action_btn } from './style'
-import { add, close, label, save } from '../../common/color'
 import CloseIcon from '@mui/icons-material/Close';
-import CheckIcon from '@mui/icons-material/Check';
 
 import './style.scss'
+import { action_btn } from './style'
+import { add, close, label } from '../../common/color'
+import { Entity } from '../../class/Entity';
+import EntityFieldForm from '../entity-field/EntityFieldForm';
+import { EntityField } from '../../class/Fields';
+import { addField, removeEntity, updateEntity } from '../../redux/actions/action.entity';
 
 interface EntityFormProps { 
-    id: number,
-    entity: IEntity,
-    handleSave: () => void,
-    handleDelete: (entity: any) => void,
+    entity: Entity,
 }
 
 
-const EntityForm: React.FC<EntityFormProps> = ({ entity, handleDelete, handleSave , id }) => {
-
-    const [data, setData] : any = useState(entity)
-
-    const handleAddField = () => { 
-        const new_data = {
-            ...data,
-            fields: [...data.fields, {
-                name: 'id',
-                value: '',
-                type: 'String',
-            }]
-        }
-        setData(new_data)        
-    }
-
-    const removeField = (index: number) => { 
-        const new_fields = data.fields        
-        new_fields.splice(index, 1)
-        setData({
-            ...data,
-            fields: [...new_fields]
-        })
-        
-    }
-
-    
+const EntityForm: React.FC<EntityFormProps> = ({ entity }) => {
+    const dispatch = useDispatch()
+    const { id, fields } = entity
 
     return (
         <div className='entityForm'>
             <div className="entity">
-                <div className="input-control test">
+                <div style={{display:'flex', flexDirection:"column"}}>
                     <label htmlFor="" className='e-name' style={ label }>Entity name</label>
-                    <input type="text" name="name" className="input-field" />
+                    <input type="text" name="name" className="input-field" id={id} onChange={({ target }: ChangeEvent<HTMLInputElement>) => dispatch(updateEntity({name: target.value, entity}))  }/>
                 </div>
                 <div>
-                    <button style={{...action_btn, ...add} } onClick={ () => handleAddField() }><AddIcon /></button>
-                    <button style={{ ...action_btn, ...save }} onClick={ ()=> handleSave() }><CheckIcon /></button>
-                    <button style={{ ...action_btn, ...close }} onClick={ ()=> handleDelete(id) }><CloseIcon /></button>
+                    <button style={{...action_btn, ...add} } onClick={ () => dispatch(addField(entity))}><AddIcon /></button>
+                    <button style={{ ...action_btn, ...close }} onClick={ ()=> dispatch(removeEntity(entity)) }><CloseIcon /></button>
                 </div>
             </div>
             <div>
             {
-                data.fields.map((field: any, index:number) => { 
-                    return <EntityField handleRemoveField={ removeField} field={field} key={index} id={ index }/>
+                    fields?.map((field: EntityField) => {
+                        return <EntityFieldForm field={field} key={field.id} entity={ entity }/>
                 })
             }
            </div>

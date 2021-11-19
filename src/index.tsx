@@ -2,12 +2,17 @@ import React from 'react';
 import  Dashboard  from './components/dashboard/Dashboard'
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux'
+
+import store from "./redux/store"
 import './style.scss'
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Dashboard/>
+    <Provider store={ store }>
+      <Dashboard/>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

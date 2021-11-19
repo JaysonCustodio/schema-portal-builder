@@ -3,18 +3,32 @@
 }
 
 .entity-field {
-  background-color: rgb(28, 44, 59);
-  padding: 5px;
-  margin-top: 10px;
+  padding: 5px 10px 5px 10px;
+  margin-top: 1px;
   font-size: 12px;
+  flex: 1 1 95%;
   display: flex;
-  justify-content: space-evenly;
-  border-radius: 5px;
+  flex-wrap: wrap;
+}
+.btn-div {
+  flex: 1 1 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
 }
 
 .input-control {
   display: flex;
   flex-direction: column;
+  flex: 1 1 10em;
+  justify-content: center;
+  align-items: center;
+  margin-left: 3px;
 }
 
 .radio {
@@ -35,4 +49,10 @@
 .label-name {
   color: rgb(119, 115, 115);
   margin-bottom: 5px;
+}
+
+.input-select {
+  width: 150px;
+  height: 20px;
+  border-radius: 5px;
 }
